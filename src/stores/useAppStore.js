@@ -32,13 +32,13 @@ const getInitialProfile = () => {
     }
   }
   return {
-    name: 'Jana Sayed',
-    email: 'janasayed135790@gmail.com',
-    phone: '01064362926',
-    city: 'Cairo, Egypt',
-    bloodType: 'A+',
+    name: 'Test Patient',
+    email: 'test@example.com',
+    phone: '01000000000',
+    city: 'Boston, MA',
+    bloodType: 'O+',
     allergies: 'None',
-    emergencyContact: 'Family Contact (+20 106 436 2926)',
+    emergencyContact: 'Emergency Contact (+1 555-000-0000)',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop',
   };
 };
