@@ -136,3 +136,7 @@ src/
 - [x] **Zustand Store**: Global store for favorites bookmarking, Light/Dark theme mode, user profile.
 - [x] **Axios REST API**: Pure Axios HTTP requests to `/doctors` and `/appointments` endpoints.
 - [x] **Styling**: Tailwind CSS, responsive design, sleek glassmorphism, dark mode.
+
+---
+*Repository verified and updated for React Router v7 & Pure json-server REST API.*
+
