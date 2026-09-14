@@ -1,6 +1,6 @@
 # 🏥 MediCare — Modern Medical Booking Application
 
-A complete, responsive, modern medical appointment booking application built with **React**, **React Router v6**, **Zustand**, **Axios**, **React Hook Form**, **Tailwind CSS**, and **json-server**.
+A complete, responsive, modern medical appointment booking application built with **React**, **React Router v7**, **Zustand**, **Axios**, **React Hook Form**, **Tailwind CSS**, and **json-server**.
 
 ---
 
@@ -25,7 +25,7 @@ A complete, responsive, modern medical appointment booking application built wit
 ### 4. Appointment CRUD Operations (`/appointments`)
 Full CRUD (Create, Read, Update, Delete) capability:
 - **Create**: Booked via appointment form (POST `/appointments`).
-- **Read**: View scheduled consultations with live status badges.
+- **Read**: View scheduled consultations with live status badges (GET `/appointments`).
 - **Update / Reschedule**: Interactive Modal dialog with React Hook Form to modify date, slot, phone, or medical notes (PUT `/appointments/:id`).
 - **Delete / Cancel**: Confirmation Modal before canceling consultation (DELETE `/appointments/:id`).
 
@@ -44,13 +44,13 @@ Full CRUD (Create, Read, Update, Delete) capability:
 | :--- | :--- |
 | **React 18 / 19** | Core UI library with functional components & hooks |
 | **Vite** | Next-generation frontend build tooling |
-| **React Router v6** | Client-side routing with nested routes & dynamic parameters |
+| **React Router v7** | Client-side routing with nested routes & dynamic parameters (`react-router-dom ^7.18.3`) |
 | **Zustand** | Global state management for theme mode, favorites, and profile |
-| **Axios** | REST API service layer targeting `json-server` (with zero-break fallback) |
+| **Axios** | REST API service layer targeting `json-server` (`/doctors` and `/appointments`) |
 | **React Hook Form** | Form state management & validation |
 | **Tailwind CSS** | Styling, glassmorphism, responsive utilities, and dark mode |
 | **Lucide Icons** | Modern SVG vector icons |
-| **json-server** | Fake REST API backend serving `/doctors` and `/appointments` |
+| **json-server** | Fake REST API backend serving `/doctors` and `/appointments` from `db.json` |
 
 ---
 
@@ -69,7 +69,7 @@ Start the mock REST API server on port 3001:
 ```bash
 npm run api
 ```
-*(Serves `db.json` endpoints: `http://localhost:3001/doctors` and `http://localhost:3001/appointments`)*
+*(Serves `db.json` REST endpoints: `http://localhost:3001/doctors` and `http://localhost:3001/appointments`)*
 
 ### 3. Start React Development Server
 In a new terminal window, start Vite:
@@ -77,9 +77,6 @@ In a new terminal window, start Vite:
 npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-> 💡 **Note on Standalone / Hosted Mode:**
-> If `json-server` is not running on port 3001, the app's `src/services/api.js` automatically uses a zero-break local memory fallback. The app will function completely out-of-the-box in any environment!
 
 ---
 
@@ -104,7 +101,7 @@ src/
 │   ├── ProfilePage.jsx                 # Patient profile page with Zustand store
 │   └── NotFoundPage.jsx                # 404 fallback page
 ├── services/
-│   └── api.js                          # Axios REST API service layer with local fallback
+│   └── api.js                          # Axios REST API service layer targeting json-server
 ├── stores/
 │   └── useAppStore.js                  # Zustand store for theme, favorites, profile, toasts
 ├── routes/
@@ -137,5 +134,5 @@ src/
 - [x] **Uncontrolled Input**: `useRef` promo code input on Booking page & visual demo component.
 - [x] **React Hook Form**: Form validation (required, email regex, phone, minimum date = today) with visible errors.
 - [x] **Zustand Store**: Global store for favorites bookmarking, Light/Dark theme mode, user profile.
-- [x] **Axios REST API**: Axios HTTP requests to `/doctors` and `/appointments` endpoints.
+- [x] **Axios REST API**: Pure Axios HTTP requests to `/doctors` and `/appointments` endpoints.
 - [x] **Styling**: Tailwind CSS, responsive design, sleek glassmorphism, dark mode.
